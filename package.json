@@ -1,0 +1,30 @@
+{
+  "name": "tandem-mcp",
+  "version": "0.1.0",
+  "description": "Workflow-level MCP server: GitHub, Jira and Notion working in tandem around one unit of work — a Jira issue.",
+  "license": "MIT",
+  "author": "Eduardo Javier Garcia Lopez <eduardo@agenticengineering.agency>",
+  "type": "module",
+  "main": "dist/stdio.js",
+  "bin": {
+    "tandem-mcp": "dist/stdio.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "start": "bun run src/stdio.ts",
+    "start:http": "bun run src/http.ts",
+    "dev": "bun --watch run src/stdio.ts",
+    "dev:http": "bun --watch run src/http.ts",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.4",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}

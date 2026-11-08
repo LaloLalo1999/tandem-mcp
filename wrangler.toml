@@ -1,0 +1,26 @@
+# Tandem — Cloudflare Workers
+# Deploy:  npx wrangler deploy
+# Secrets (never commit): npx wrangler secret put GITHUB_TOKEN, etc.
+# Public demo endpoint: DEMO_MODE = "true" runs entirely on in-memory
+# fixtures (no tokens needed). Set DEMO_MODE = "false" and add provider
+# secrets only for a live deployment.
+
+name = "tandem-mcp"
+main = "src/worker.ts"
+compatibility_date = "2026-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Public, non-secret defaults. DEMO_MODE = "true" for a public demo
+# endpoint that runs entirely on fixtures (no tokens needed).
+DEMO_MODE = "true"
+GITHUB_REPO = "lalolalo1999/tandem-demo"
+JIRA_PROJECT = "TAN"
+NOTION_STATUS_PROPERTY = "Status"
+POSTHOG_HOST = "https://us.i.posthog.com"
+
+# Observability is off unless these secrets are set:
+#   POSTHOG_API_KEY, SENTRY_DSN
+# Provider credentials (set as secrets, not vars):
+#   GITHUB_TOKEN, JIRA_BASE_URL, JIRA_EMAIL, JIRA_API_TOKEN,
+#   NOTION_API_KEY, NOTION_PARENT_PAGE_ID
